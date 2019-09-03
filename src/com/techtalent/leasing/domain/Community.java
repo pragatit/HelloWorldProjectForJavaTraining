@@ -7,7 +7,8 @@ public class Community {
 	private String community; 
 	private float rentForAPet;
 	private String address;
-	
+	private boolean petsAllowed;
+	private boolean hasPlayGround;
 	private List<Apartment> apartments;
 	
 	
@@ -29,6 +30,23 @@ public class Community {
 		}
 	}
 	
+	public boolean isPetsAllowed() {
+		return petsAllowed;
+	}
+
+	public void setPetsAllowed(boolean petsAllowed) {
+		this.petsAllowed = petsAllowed;
+	}
+
+
+	public List<Apartment> getApartments() {
+		return apartments;
+	}
+
+	public void setApartments(List<Apartment> apartments) {
+		this.apartments = apartments;
+	}
+
 	public String getCommunity() {
 		return community;
 	}
@@ -48,14 +66,26 @@ public class Community {
 		this.address = address;
 	}
 
+	public void setHasPlayGround(boolean hasPlayGround) {
+		this.hasPlayGround = hasPlayGround;
+	}
+
 	public boolean areApartmentAvailable() {
-		for (int i = 0 ; i < apartments.size() ; i++) {
-			if(apartments.get(i).isAvailable()) {
+		//for each apartment in apartments list
+		for(Apartment aprt : apartments) {
+			if(aprt.isAvailable()) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	public boolean arePetsAllowed() {
+		return petsAllowed;
+	}
+
+	public boolean havePlayGround() {
+		return hasPlayGround;
+	}
 	
 }
