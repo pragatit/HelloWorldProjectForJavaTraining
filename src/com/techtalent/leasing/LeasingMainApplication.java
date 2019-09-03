@@ -40,6 +40,9 @@ public class LeasingMainApplication {
 			}
 			System.out.println("What all other amenities do you have?");
 			community.listAmmenities();
+			//Create a class Amenity
+			//Create atleast 3 amenities
+			//list all the amenities using for each loop
 			System.out.println("Give me the list of apartments available with the rent.");
 			List<Apartment> availableApartments =  community.getAvailableApartments();
 			for (Apartment apartment : availableApartments) {
