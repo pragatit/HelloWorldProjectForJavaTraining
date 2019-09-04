@@ -81,8 +81,12 @@ public class Apartment {
 		return true;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "Apartment [apartNumber=" + apartNumber + ", sizeInSqFoot=" + sizeInSqFoot + ", numBedrooms="
+				+ numBedrooms + ", availability=" + availability + ", baseRent=" + baseRent + ", community=" + community
+				+ "]";
+	}
 	
 
 }

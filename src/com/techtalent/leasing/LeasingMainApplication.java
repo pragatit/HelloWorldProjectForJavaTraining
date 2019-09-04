@@ -1,9 +1,8 @@
 package com.techtalent.leasing;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.techtalent.leasing.domain.Apartment;
@@ -19,6 +18,10 @@ public class LeasingMainApplication {
 		/*Community community2 = new Community("Camden", 50, "4070 XXX Dr", 10);
 		community.setPetsAllowed(false);
 		*/
+		
+//		System.out.println(Math.random() * 10);
+		
+		System.out.println(community);
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -42,9 +45,6 @@ public class LeasingMainApplication {
 			}
 			System.out.println("What all other amenities do you have?");
 			community.listAmmenities();
-			//Create a class Amenity
-			//Create atleast 3 amenities
-			//list all the amenities using for each loop
 			System.out.println("Give me the list of apartments available with the rent.");
 			List<Apartment> availableApartments =  community.getAvailableApartments();
 			for (Apartment apartment : availableApartments) {

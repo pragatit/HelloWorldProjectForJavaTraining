@@ -1,6 +1,7 @@
 package com.techtalent.leasing.domain;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Community {
@@ -97,5 +98,27 @@ public class Community {
 	public boolean havePlayGround() {
 		return hasPlayGround;
 	}
+
+	@Override
+	public String toString() {
+		return "Community [community=" + community + ", rentForAPet=" + rentForAPet + ", address=" + address
+				+ ", petsAllowed=" + petsAllowed + ", hasPlayGround=" + hasPlayGround + ", apartments=" + apartments
+				+ "]";
+	}
+
+	public void listAmmenities() {
+		//Create a class Amenity
+		//Create atleast 3 amenities 
+		//list all the amenities using for each loop
+	}
+
+	public List<Apartment> getAvailableApartments() {
+		// TODO Auto-generated method stub
+		
+		//Get the list of all available apartments
+		return null;
+	}
+	
+	
 	
 }
