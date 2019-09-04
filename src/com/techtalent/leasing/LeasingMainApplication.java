@@ -12,41 +12,6 @@ import com.techtalent.leasing.domain.Community;
 public class LeasingMainApplication {
 	public static void main(String[] args) {
 		
-		
-		Apartment apartment = new Apartment(10);
-		
-		Apartment apartment1 = new Apartment(10);
-		Apartment apartment2 = new Apartment(10);
-
-
-		System.out.println(apartment.equals(apartment1));
-		
-		System.out.println(apartment2 == apartment);
-
-		
-		System.out.println(apartment.getClass());
-		
-		List<Apartment> apartments = new ArrayList<Apartment>();
-		
-		apartments.add(new Apartment(201));
-		apartments.add(new Apartment(202));
-		apartments.add(new Apartment(203));
-		apartments.add(new Apartment(204));
-		apartments.add(new Apartment(205));
-		apartments.add(new Apartment(206));
-		apartments.add(new Apartment(207));
-
-		
-		System.out.println(apartments.contains(new Apartment(304)));
-		System.out.println(apartments.contains(new Apartment(204)));
-		
-		
-		Map<Integer, Apartment> apartmentMap = new HashMap<>();
-		apartmentMap.put(apartment.getApartNumber(), apartment);
-		
-
-		
-		
 		Community community = new Community("Chase", 50, "211 N Ervy", 10);
 		community.setPetsAllowed(true);
 		community.setHasPlayGround(true);
