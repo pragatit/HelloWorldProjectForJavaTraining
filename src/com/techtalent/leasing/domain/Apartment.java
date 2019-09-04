@@ -8,6 +8,10 @@ public class Apartment {
 	private float baseRent;
 	private Community community;
 
+	public Apartment(int apartmentNum) {
+		apartNumber = apartmentNum;
+	}
+
 	public int getApartNumber() {
 		return apartNumber;
 	}
@@ -54,5 +58,31 @@ public class Apartment {
 		
 		return petRent + rent;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + apartNumber;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (this.getClass() != obj.getClass())
+			return false;
+		Apartment other = (Apartment) obj;
+		if (this.apartNumber != other.apartNumber)
+			return false;
+		return true;
+	}
+
+	
+	
+	
 
 }

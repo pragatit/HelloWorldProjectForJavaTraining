@@ -1,7 +1,7 @@
 package com.techtalent.leasing.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Community {
 	private String community; 
@@ -9,7 +9,7 @@ public class Community {
 	private String address;
 	private boolean petsAllowed;
 	private boolean hasPlayGround;
-	private List<Apartment> apartments;
+	private Map<Integer, Apartment> apartments;
 	
 	
 	public Community(String name, float rentForAPet,String address, int numOfApartments) {
@@ -17,12 +17,12 @@ public class Community {
 		this.rentForAPet = rentForAPet;
 		this.address = address;
 		
-		apartments = new ArrayList<>();
+		apartments = new HashMap<>();
 		
 		for (int i = 0; i < numOfApartments ; i ++) {
-			Apartment apartment = new Apartment();
-			apartments.add(apartment);
-			apartment.setApartNumber(i + 1);
+			int apartmentNum = i + 1;
+			Apartment apartment = new Apartment(apartmentNum);
+			apartments.put(apartmentNum, apartment);
 			apartment.setAvailability(true);
 			apartment.setBaseRent(10);
 			apartment.setNumBedrooms(2);
@@ -39,11 +39,11 @@ public class Community {
 	}
 
 
-	public List<Apartment> getApartments() {
+	public Map<Integer, Apartment> getApartments() {
 		return apartments;
 	}
 
-	public void setApartments(List<Apartment> apartments) {
+	public void setApartments(Map<Integer, Apartment> apartments) {
 		this.apartments = apartments;
 	}
 
@@ -72,12 +72,22 @@ public class Community {
 
 	public boolean areApartmentAvailable() {
 		//for each apartment in apartments list
-		for(Apartment aprt : apartments) {
+		for(Apartment aprt : apartments.values()) {
 			if(aprt.isAvailable()) {
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public Apartment getApartment(int apartmentNum) {
+		/*for(Apartment aprt : apartments) {
+			if(aprt.getApartNumber() == apartmentNum) {
+				return aprt;
+			}
+		}
+		return null;*/
+		return apartments.get(apartmentNum);
 	}
 	
 	public boolean arePetsAllowed() {
