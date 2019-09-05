@@ -13,6 +13,7 @@ public class Community {
 	private boolean hasPlayGround;
 	private Map<Integer, Apartment> apartments;
 	private List<Amenity> amenities = new ArrayList<Amenity>();
+	//MaintainanceRequests TODO
 	
 	
 	public Community(String name, float rentForAPet,String address, int numOfApartments) {

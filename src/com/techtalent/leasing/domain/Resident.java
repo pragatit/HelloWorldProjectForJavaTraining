@@ -13,8 +13,9 @@ public class Resident {
 		System.out.println("New Resident Enrolled");
 	}
 	
-	public Resident(String name) {
+	public Resident(String name, String contactNumber) {
 		this.name = name;
+		this.contactNumber = contactNumber;
 	}
 
 	public String getName() {
@@ -23,6 +24,16 @@ public class Resident {
 
 	public void setName(String name){
 		this.name = name;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((contactNumber == null) ? 0 : contactNumber.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
 	}
 
 	@Override
@@ -34,10 +45,15 @@ public class Resident {
 		if (getClass() != obj.getClass())
 			return false;
 		Resident other = (Resident) obj;
-		if (name == null) {
-			if (other.ssn != null)
+		if (contactNumber == null) {
+			if (other.contactNumber != null)
 				return false;
-		} else if (!ssn.equals(other.ssn))
+		} else if (!contactNumber.equals(other.contactNumber))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}

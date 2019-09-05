@@ -1,5 +1,8 @@
 package com.techtalent.leasing.domain;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Apartment {
 	private int apartNumber;
 	private float sizeInSqFoot;
@@ -7,6 +10,7 @@ public class Apartment {
 	private boolean availability;
 	private float baseRent;
 	private Community community;
+	private Queue<Resident> probableResidents = new LinkedList<>();
 
 	public Apartment(int apartmentNum) {
 		apartNumber = apartmentNum;
@@ -58,6 +62,10 @@ public class Apartment {
 		
 		return petRent + rent;
 	}
+	
+	public void addHold(String name, String contactNumber) {
+		probableResidents.add(new Resident(name, contactNumber));
+	}
 
 	@Override
 	public int hashCode() {
@@ -86,6 +94,19 @@ public class Apartment {
 		return "Apartment [apartNumber=" + apartNumber + ", sizeInSqFoot=" + sizeInSqFoot + ", numBedrooms="
 				+ numBedrooms + ", availability=" + availability + ", baseRent=" + baseRent + ", community=" + community
 				+ "]";
+	}
+
+	public boolean checkPreference(String name, String contactNumber) {
+		Resident resident = probableResidents.peek();
+		return resident.equals(new Resident(name, contactNumber));
+	}
+
+	public void clearHold() {
+		probableResidents.clear();
+	}
+
+	public void removeHold() {
+		probableResidents.poll();
 	}
 	
 
