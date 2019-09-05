@@ -1,10 +1,9 @@
 package com.techtalent.leasing;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
+import com.techtalent.leasing.domain.Amenity;
 import com.techtalent.leasing.domain.Apartment;
 import com.techtalent.leasing.domain.Community;
 
@@ -14,6 +13,11 @@ public class LeasingMainApplication {
 		Community community = new Community("Chase", 50, "211 N Ervy", 10);
 		community.setPetsAllowed(true);
 		community.setHasPlayGround(true);
+		Amenity amenity = new Amenity(true, "pool", 0);
+		community.addAmenity(amenity);
+		community.addAmenity(new Amenity(false, "jym", 0));
+		community.addAmenity(new Amenity(false, "washer/dryer", 10));
+
 		
 		/*Community community2 = new Community("Camden", 50, "4070 XXX Dr", 10);
 		community.setPetsAllowed(false);
@@ -48,14 +52,21 @@ public class LeasingMainApplication {
 			System.out.println("Give me the list of apartments available with the rent.");
 			List<Apartment> availableApartments =  community.getAvailableApartments();
 			for (Apartment apartment : availableApartments) {
+				System.out.println(apartment);
 				System.out.println("Are you intersted? Y/N");
 				String interstedStr =  scanner.nextLine();
 				if(interstedStr.equals("Y")) {
-					//break the for loop and display the apartment number of selected apartment
+					System.out.println("This is the rent for the choosen apartment.");
+					System.out.println(apartment.calculateRent(2));
+					System.out.println("Are you ok with it? Y/N");
+					interstedStr =  scanner.nextLine();
+					if(interstedStr.equals("Y")) {
+						System.out.println("Congratulations!!!");
+						break;
+					}
 				}else {
-					//Move to the next one
+					System.out.println("Let's check other available apartments");				}
 				}
-			}
 		}else {
 			System.out.println("Sorry!!! we don't have anything available right now.");
 		}

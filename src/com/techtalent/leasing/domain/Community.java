@@ -1,5 +1,6 @@
 package com.techtalent.leasing.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ public class Community {
 	private boolean petsAllowed;
 	private boolean hasPlayGround;
 	private Map<Integer, Apartment> apartments;
+	private List<Amenity> amenities = new ArrayList<Amenity>();
 	
 	
 	public Community(String name, float rentForAPet,String address, int numOfApartments) {
@@ -98,6 +100,10 @@ public class Community {
 	public boolean havePlayGround() {
 		return hasPlayGround;
 	}
+	
+	public void addAmenity(Amenity amenity) {
+		amenities.add(amenity);
+	}
 
 	@Override
 	public String toString() {
@@ -107,16 +113,19 @@ public class Community {
 	}
 
 	public void listAmmenities() {
-		//Create a class Amenity
-		//Create atleast 3 amenities 
-		//list all the amenities using for each loop
+		for (Amenity amenity : amenities) {
+			System.out.println(amenity);
+		}
 	}
 
 	public List<Apartment> getAvailableApartments() {
-		// TODO Auto-generated method stub
-		
-		//Get the list of all available apartments
-		return null;
+		List<Apartment> availableApartments = new ArrayList<>();
+		for (Apartment apt : apartments.values()) {
+			if(apt.isAvailable()) {
+				availableApartments.add(apt);
+			}
+		}
+		return availableApartments;
 	}
 	
 	

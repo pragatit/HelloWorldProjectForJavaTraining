@@ -52,9 +52,9 @@ public class Apartment {
 		this.baseRent = baseRent;
 	}
 	
-	public float calculateRent(Resident resident) {
-		float petRent = resident.getNumPets() *  this.community.getRentForAPet();
-		float rent = this.baseRent* this.sizeInSqFoot;
+	public float calculateRent(int numOfPets) {
+		float petRent = numOfPets *  this.community.getRentForAPet();
+		float rent = this.baseRent * this.sizeInSqFoot;
 		
 		return petRent + rent;
 	}
